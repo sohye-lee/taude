@@ -1,5 +1,30 @@
+:root {
+  --Black: rgb(20,20,20);
+  --White: rgb(240,240,240);
+  --Smoke: rgb(230,230,230);
+  --Blue: rgb(38, 38, 245);
+  --Pink: rgb(247, 36, 71);
+  --Gray: rgb(187, 187, 187);
+  --Orange: rgb(255, 173, 21);
+  --Lime: rgb(138, 255, 71);
+
+  --Border: 4px;
+  --Transition: all 350ms ease;
+  --MaxWidth: 1480px;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@200;300;400&family=Open+Sans&family=Poppins:wght@100;200;400;600;700&family=Raleway&family=Roboto+Slab&display=swap');
+
+html {
+  font-size: 62%;
+  box-sizing: border-box;
+}
+
 body {
   margin: 0;
+  width: 100vw;
+  font-size: 1.6rem;
+
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
@@ -7,7 +32,32 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+h1 {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
 }
+
+.grid-container {
+  width: 100vw;
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.row.center {
+  justify-content: center;
+}
+
+a {
+  text-decoration: none;
+}
+
+a:hover {
+  color: var(--Orange);
+}
+
