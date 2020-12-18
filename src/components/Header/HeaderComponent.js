@@ -1,5 +1,7 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import './Header.css';
+import Cart from '../Cart/CartComponent';
 
 const Header = () => (
     <div className="header__container">
@@ -8,8 +10,8 @@ const Header = () => (
                 <a href="/" className="header__brand"><h2 className="logo">TAUDE</h2></a>
             </div>
             <div className="header__right">
-                <a href="/" className="header__cart"><i class="fa fa-shopping-bag"/> cart</a>
-                <a href="/" className="header__login"><i class="fa fa-unlock-alt"></i> login</a>
+                <a href="/cart" className="header__cart"><i className="fa fa-shopping-bag"/> cart</a>
+                <a href="/login" className="header__login"><i className="fa fa-unlock-alt"></i> login</a>
             </div>
         </div>
     </div>

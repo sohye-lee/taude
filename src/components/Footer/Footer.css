@@ -7,4 +7,6 @@
     left: 0;
     background-color: var(--Black);
     color: var(--White);
+    z-index: 100;
+    margin: 0;
 }

@@ -4,21 +4,24 @@ import ReactStars from 'react-rating-stars-component';
 
 
 const Product = ({product}) =>  (
-    <div key={product._id} className="product__box">
+    <div className="product__box">
         <a className="product__imageBox" href={`/product/${product._id}`}> 
-            <img className="product__image" src={product.imageUrl} alt={product.name} />
+            <img className="product__image" src={product.imageUrl[0]} alt={product.name} />
         </a>
         <div className="product__description">
             <a href={`/product/${product._id}`}> 
                 <h2 className="product__title">{product.name}</h2>
             </a>
-            <ReactStars 
-                count={5}
-                value={product.rating}
-                size={15}
-                activeColor="#ffd700"
-                edit={false}
-            />
+            <div className="product__ratings row">
+                <ReactStars 
+                    count={5}
+                    value={product.rating}
+                    size={15}
+                    activeColor="#ffd700"
+                    edit={false}
+                />
+                <span style={{marginLeft: 10}}> {product.numReviews + (product.numReviews>0? " reviews" : " review")}</span>
+            </div>
             <h5 className="product__price">$ {product.price}</h5>
         </div>
     </div>

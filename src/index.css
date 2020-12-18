@@ -3,8 +3,11 @@
   --White: rgb(240,240,240);
   --Smoke: rgb(230,230,230);
   --Blue: rgb(38, 38, 245);
+  --Sky: rgb(46, 196, 255);
+  --Red: rgb(182, 2, 2);
   --Pink: rgb(247, 36, 71);
   --Gray: rgb(187, 187, 187);
+  --DarkGray: #3b3b3b;
   --Orange: rgb(255, 173, 21);
   --Lime: rgb(138, 255, 71);
 
@@ -23,7 +26,10 @@ html {
 body {
   margin: 0;
   width: 100vw;
+  min-height: 100vh;
   font-size: 1.6rem;
+  background-image: linear-gradient(135deg, #ffffff 44.44%, #545454 44.44%, #545454 50%, #ffffff 50%, #ffffff 94.44%, #545454 94.44%, #545454 100%);
+  background-size: 12.73px 12.73px; 
 
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
@@ -39,6 +45,7 @@ h1 {
 
 .grid-container {
   width: 100vw;
+  height: 100%;
 }
 
 .row {
@@ -47,17 +54,44 @@ h1 {
   flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
+  margin: 1rem auto;
 }
 
 .row.center {
   justify-content: center;
 }
 
-a {
-  text-decoration: none;
+.row.top {
+  align-items: top;
 }
 
-a:hover {
+a, a > * {
+  text-decoration: none;
+  transition: all 350ms ease;
+}
+
+a:hover, a:hover>* {
   color: var(--Orange);
 }
 
+button.btn {
+  outline: none;
+  background-color: var(--Orange);
+  color: var(--Black);
+  border: none;
+  width: 100%;
+  margin: 2rem 0;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  font-family: 'Poppins', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-size: 1.7rem;
+  font-weight: 400;
+  transition: all 350ms ease;
+}
+
+button.btn:hover {
+  border-color:rgb(138, 255, 71);
+}

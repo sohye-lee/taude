@@ -1,0 +1,147 @@
+/* BOXES RESPONSIVE SETTINGS */
+
+.info__container {
+    width: 100vw;
+    min-height: 100vh;
+}
+
+.info__content {
+    width: 90vw;
+    height: 100%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.info__main {
+    flex-basis: 65%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.info__imageBox {
+    flex-basis: 60%;
+}
+
+.info__image {
+    width: 100%;
+    border-radius: var(--Border);
+    border: 1px solid var(--Gray);
+}
+
+.info__imageCarousel {
+    height: 102px;
+    width: 100%;
+    overflow: auto;
+    background-color: var(--Gray);
+    display: flex;
+}
+
+.info__description {
+    flex-basis: 33%;
+    background-color: var(--White);
+    padding: 20px;
+    border-radius: var(--Border);
+    border: 1px solid var(--Gray);
+}
+
+.info__action {
+    flex-basis: 25%;
+    border: 1px solid var(--Gray);
+    border-radius: var(--Border);
+    background-color: var(--Black);
+}
+
+.info__action div {
+    padding: 0 2rem;
+}
+
+
+
+@media all and (max-width: 1024px) {
+
+    .info__content {
+        flex-direction: column;
+        align-items: center;
+        margin-bottom: 120px;
+    }
+
+    .info__main {
+        width: 100%;
+        margin: 0 auto;
+    }
+
+    .info__action {
+        width: 100%;
+        margin: 3rem auto;
+    }
+}
+
+@media all and (max-width: 768px) {
+
+    .info__main {
+        flex-direction: column;
+        width: 100%;
+        margin: 0 auto;
+    }
+
+    .info__imageCarousel {
+        margin: 0 auto 1.1rem auto; 
+    }
+}
+
+
+
+/* STYLES SETTINGS */
+
+.info__goBack {
+    width: 90%;
+    margin: 110px auto 20px auto;
+}
+
+.info__goBack span {
+    color: var(--White);
+    background-color: var(--Black);
+    padding: 3px;
+}
+
+.info__goBack a:hover {
+    color: var(--Pink);
+}
+
+.info__smallImgBox {
+    height: 100px;
+    width: 100px;
+    border: 1px solid var(--Gray);
+}
+
+.info__smallImg {
+    width: 100px;
+}
+
+.info__description  * {
+    color: var(--DarkGray);
+    font-weight: 300;
+}
+
+.info__ratings {
+    display: flex;
+}
+
+.info__action * {
+    color: var(--White);
+    font-weight: 300;
+}
+
+.red {
+    color: var(--Red);
+}
+
+.skyblue {
+    color: var(--Sky);
+}
+  
+.option {
+    color: var(--DarkGray);
+}
