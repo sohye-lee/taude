@@ -15,13 +15,18 @@ export const listProducts = () => async (dispatch) => {
 };
 
 export const detailsProduct = (productId) => async (dispatch) => {
+    dispatch({ type: ActionTypes.PRODUCT_DETAILS_REQUEST, payload: productId });
     try {
-      dispatch({ type: ActionTypes.PRODUCT_DETAILS_REQUEST, payload: productId });
-      const { data } = await axios.get("/api/products/" + productId);
+      const { data } = axios.get(`/api/products/${productId}`);
       dispatch({ type: ActionTypes.PRODUCT_DETAILS_SUCCESS, payload: data });
     } catch (error) {
-      dispatch({ type: ActionTypes.PRODUCT_DETAILS_FAIL, payload: error.message });
-  
+      dispatch({ 
+        type: ActionTypes.PRODUCT_DETAILS_FAIL, 
+        payload: 
+        error.response && error.response.data.message 
+        ? error.response.data.message
+        : error.message
+      });
     }
   };
 
