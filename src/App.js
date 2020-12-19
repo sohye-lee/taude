@@ -11,8 +11,7 @@ function App() {
     <BrowserRouter>
         <Header />
         <Route path="/" component={Home} exact />
-        <Route path="/product/:id" component={ProductInfo} />
-        
+        <Route path="/product/:id" component={ProductInfo} exact />
         <Footer />
     </BrowserRouter>
   );

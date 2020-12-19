@@ -51,12 +51,13 @@
     border: 1px solid var(--Gray);
     border-radius: var(--Border);
     background-color: var(--Black);
+    padding: 20px;
+    box-sizing: border-box;
 }
 
-.info__action div {
-    padding: 0 2rem;
+.info__seller {
+    border-bottom: 1px dotted white;
 }
-
 
 
 @media all and (max-width: 1024px) {
@@ -75,8 +76,10 @@
     .info__action {
         width: 100%;
         margin: 3rem auto;
+   
     }
 }
+
 
 @media all and (max-width: 768px) {
 
@@ -125,10 +128,6 @@
     font-weight: 300;
 }
 
-.info__ratings {
-    display: flex;
-}
-
 .info__action * {
     color: var(--White);
     font-weight: 300;
@@ -144,4 +143,10 @@
   
 .option {
     color: var(--DarkGray);
+}
+
+.head {
+    font-weight: 600;
+    text-transform: uppercase;
+    line-height: 2.5rem;
 }

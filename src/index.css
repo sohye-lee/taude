@@ -95,3 +95,23 @@ button.btn {
 button.btn:hover {
   border-color:rgb(138, 255, 71);
 }
+
+.error {
+  color: #a02020;
+}
+
+.alert {
+  padding: 1rem;
+  border: 0.1rem solid transparent;
+  border: 0.5rem;
+}
+
+.alert-info {
+  color: var(--Blue);
+  background-color: var(--White);
+}
+
+.alert-error {
+  color: var(--Red);
+  background-color: var(--White);
+}
