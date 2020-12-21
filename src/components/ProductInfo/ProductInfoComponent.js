@@ -19,7 +19,7 @@ const ProductInfo= (props) => {
     const dispatch = useDispatch();
     const productId = props.match.params.id;
     const productDetails = useSelector((state) => state.productDetails);
-    const { loading, product1, error } = productDetails;
+    const { loading, error } = productDetails;
     
     
     useEffect(() => {
@@ -52,7 +52,7 @@ const ProductInfo= (props) => {
     return (
         
         <div className="info__container">
-            <Link to="/"><div className="info__goBack"><span><i className="fa fa-angle-left" /> BACK TO MAIN</span></div></Link>
+            <Link to="/"><div className="screen__goBack"><span><i className="fa fa-angle-left" /> BACK TO MAIN</span></div></Link>
             {loading?  <Loading />
             : error? <MessageBox variant="danger">{error}</MessageBox>
             :(<div className="info__content">
@@ -123,7 +123,7 @@ const ProductInfo= (props) => {
                                     </select>
                                 </div>
                                 <div className="row center">
-                                    <button onClick={addToCartHandle} className="info__cartBtn btn">ADD TO CART</button>
+                                    <button onClick={addToCartHandle} className="btn">ADD TO CART</button>
                                 </div>
                             </div>
                         )

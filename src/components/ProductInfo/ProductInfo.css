@@ -96,24 +96,8 @@
 
 }
 
-
-
 /* STYLES SETTINGS */
 
-.info__goBack {
-    width: 90%;
-    margin: 110px auto 20px auto;
-}
-
-.info__goBack span {
-    color: var(--White);
-    background-color: var(--Black);
-    padding: 3px;
-}
-
-.info__goBack a:hover {
-    color: var(--Pink);
-}
 
 .info__smallImgBox {
     height: 100px;

@@ -78,7 +78,7 @@ button.btn {
   outline: none;
   background-color: var(--Orange);
   color: var(--Black);
-  border: none;
+  border: 2px solid var(--Orange);
   width: 100%;
   margin: 2rem 0;
   padding: 1rem;
@@ -90,10 +90,35 @@ button.btn {
   font-size: 1.7rem;
   font-weight: 400;
   transition: all 350ms ease;
+  text-transform: uppercase;
 }
 
 button.btn:hover {
-  border-color:rgb(138, 255, 71);
+  border: 2px solid var(--Lime);
+
+}
+
+button.btn.small {
+  margin: .5rem 0;
+  padding: .8rem 0;
+  max-width: 90px;
+  min-width: 60px;
+  font-size: 1.2rem;
+  background-color: var(--Black);
+  color: var(--White);
+  transition: all 350ms ease;
+  border: 2px solid var(--Black);
+}
+
+button.btn.small:hover {
+  border: 2px solid var(--Lime);
+
+}
+
+button.btn:disabled {
+  border: 2px solid var(--Black);
+  background-color: var(--Gray);
+  cursor: default;
 }
 
 .error {
@@ -114,4 +139,19 @@ button.btn:hover {
 .alert-error {
   color: var(--Red);
   background-color: var(--White);
+}
+
+.screen__goBack {
+  width: 90%;
+  margin: 110px auto 20px auto;
+}
+
+.screen__goBack span {
+  color: var(--White);
+  background-color: var(--Black);
+  padding: 3px;
+}
+
+.screen__goBack a:hover {
+  color: var(--Pink);
 }
