@@ -1,7 +1,7 @@
 import { 
     PRODUCTS_LIST_REQUEST, PRODUCTS_LIST_SUCCESS, PRODUCTS_LIST_FAIL,
     PRODUCT_DETAILS_REQUEST, PRODUCT_DETAILS_SUCCESS, PRODUCT_DETAILS_FAIL
-} from './actionTypes';;
+} from '../actionTypes';;
 
 export const productListReducer = (state={ loading: true, products: []}, action) => {
     switch(action.type) {
@@ -16,14 +16,14 @@ export const productListReducer = (state={ loading: true, products: []}, action)
     }
 };
 
-export const productDetailsReducer = (state={ product: {} }, action) => {
+export const productDetailsReducer = (state={ loading: true }, action) => {
     switch(action.type) {
         case PRODUCT_DETAILS_REQUEST:
-            return { loading: true };
+            return { loading: true, product: null, error: false };
         case PRODUCT_DETAILS_SUCCESS:
-            return { loading: false, product: action.payload };
+            return { loading: false, product: action.payload, error: false };
         case PRODUCT_DETAILS_FAIL:
-            return { loading: false, error: action.payload };
+            return { loading: false, product: null, error: action.payload };
         default:
             return state;
     }

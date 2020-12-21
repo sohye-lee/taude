@@ -31,3 +31,15 @@
 .header__cart, .header__login {
     margin-left: 30px;
 }
+
+.cart__qty {
+    display: inline-block;
+    height: 23px;
+    width: 23px;
+    margin-left: 10px;
+    background-color: var(--Red);
+    color: var(--White);
+    border-radius: 50%;
+    line-height: 23px;
+    text-align: center;
+}

@@ -1,17 +1,18 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import './Product.css';
 import ReactStars from 'react-rating-stars-component';
 
 
 const Product = ({product}) =>  (
-    <div className="product__box">
-        <a className="product__imageBox" href={`/product/${product._id}`}> 
+    <div className="product__box" key={product._id}>
+        <Link to={`/product/${product._id}`} className="product__imageBox"> 
             <img className="product__image" src={product.imageUrl[0]} alt={product.name} />
-        </a>
+        </Link>
         <div className="product__description">
-            <a href={`/product/${product._id}`}> 
+            <Link to={`/product/${product._id}`}> 
                 <h2 className="product__title">{product.name}</h2>
-            </a>
+            </Link>
             <div className="product__ratings row">
                 <ReactStars 
                     count={5}

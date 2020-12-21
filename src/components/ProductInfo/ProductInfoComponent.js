@@ -6,36 +6,35 @@ import ReactStars from 'react-rating-stars-component';
 import Loading from '../LoadingComponent';
 import MessageBox from '../MessageBoxComponent';
 
+import { PRODUCTS } from '../../shared/products';
 import { SELLERS } from '../../shared/sellers';
 import './ProductInfo.css';
-import { detailsProduct } from '../../redux/actionCreators';
+import { detailsProduct } from '../../redux/actions/productActions';
 
 
-function ProductInfo(props) {
-    // const product = PRODUCTS.find((item) => item._id === +props.match.params.id);
-
+const ProductInfo= (props) => {
+    const product = PRODUCTS.find((item) => item._id === +props.match.params.id);
+    
+    
     const dispatch = useDispatch();
     const productId = props.match.params.id;
-    console.log(productId);
     const productDetails = useSelector((state) => state.productDetails);
-    const { loading, product, error } = productDetails;
-
-    console.log(product);
+    const { loading, product1, error } = productDetails;
+    
     
     useEffect(() => {
         dispatch(detailsProduct(productId));
-        return () => {
-
-        };
     }, [dispatch, productId]);
-        
-    const seller = SELLERS.find((seller) => seller._id === product.sellerId);
     
-    const [ showImage, setShowImage ] = useState('');
-
+    
+    const seller = SELLERS.find((seller) => seller._id === product.sellerId);
+    const [ showImage, setShowImage ] = useState(product.imageUrl[0]);
+    const [ qty, setQty ] = useState(1);
+    
     const renderImages = product.imageUrl.map(image => (
         <div className="info__smallImgBox" onClick={() => setShowImage(image)}>
             <img 
+                key={product.imageUrl.indexOf(image)}
                 src={image} 
                 className="info__smallImg" 
                 alt={product.name+' image'}
@@ -43,11 +42,12 @@ function ProductInfo(props) {
         </div>
     ));
 
-    
 
-    // if (!product) {
-    //     return <div style={{width: "100%", height: "100%", display: 'flex', alignContent: 'center', justifyContent: "center"}}>Sorry, Product Requested Not Found</div>
-    // }
+
+    const addToCartHandle = () => {
+        props.history.push(`/cart/${productId}?qty=${qty}`);
+    }
+
 
     return (
         
@@ -104,25 +104,31 @@ function ProductInfo(props) {
                         <h3>Status</h3>
                         <h3>{product.countInStock > 5 ? (<span className="skyblue">In Stock</span>) : product.countInStock > 0? (<span className="red">Only {product.countInStock} In Stock</span>): (<span className="red">Unavailable</span>)}</h3>
                     </div>
-                    <div className="row" style={{margin: '2rem 0'}}>
-                        <label for="qty">Qty</label>
-                        <select name="qty" style={{color: 'black', fontSize:"1.8rem", height: '2.9rem', padding: '3px 10px'}} >
-                            <option unselectable>select</option>
-                            <option value="1">1</option>
-                            <option value="2">2</option>
-                            <option value="3">3</option>
-                            <option value="4">4</option>
-                            <option value="5">5</option>
-                            <option value="6">6</option>
-                            <option value="7">7</option>
-                            <option value="8">8</option>
-                            <option value="9">9</option>
-                            <option value="10">10</option>
-                        </select>
-                    </div>
-                    <div className="row center">
-                        <button className="info__cartBtn btn">ADD TO CART</button>
-                    </div>
+                    {
+                        product.countInStock > 0 && (
+                            <div>
+                                <div className="row" style={{margin: '2rem 0'}}>
+                                    <label htmlFor="qty">Qty</label>
+                                    <select 
+                                        name="qty" 
+                                        style={{color: 'black', fontSize:"1.8rem", height: '2.9rem', padding: '3px 10px'}} 
+                                        onChange={e => setQty(e.target.value)}
+                                        value={qty}
+                                    >
+                                        {
+                                            [...Array(product.countInStock).keys()].map((x) => (
+                                                <option key={x+1} value={x+1}>{x+1}</option>
+                                            ))
+                                        }
+                                    </select>
+                                </div>
+                                <div className="row center">
+                                    <button onClick={addToCartHandle} className="info__cartBtn btn">ADD TO CART</button>
+                                </div>
+                            </div>
+                        )
+                    }
+                    
                 </div>
             </div>)}
         </div>

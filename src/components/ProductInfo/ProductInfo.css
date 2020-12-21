@@ -47,7 +47,7 @@
 }
 
 .info__action {
-    flex-basis: 25%;
+    flex-basis: 31%;
     border: 1px solid var(--Gray);
     border-radius: var(--Border);
     background-color: var(--Black);
@@ -75,7 +75,7 @@
 
     .info__action {
         width: 100%;
-        margin: 3rem auto;
+        margin: 3rem auto 5rem auto;
    
     }
 }
@@ -92,6 +92,8 @@
     .info__imageCarousel {
         margin: 0 auto 1.1rem auto; 
     }
+
+
 }
 
 
